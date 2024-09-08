@@ -2,7 +2,8 @@ from cnnClassifier.constants import *
 import os
 from cnnClassifier.utils.common import read_yaml, create_directories,save_json
 from cnnClassifier.entity.config_entity import (DataIngestionConfig,
-                                                PrepareBaseModelConfig)
+                                                PrepareBaseModelConfig,
+                                                TrainingConfig)
 
 
 class ConfigurationManager:
@@ -56,7 +57,7 @@ class ConfigurationManager:
 
 
 
-    '''def get_training_config(self) -> TrainingConfig:
+    def get_training_config(self) -> TrainingConfig:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
@@ -80,7 +81,7 @@ class ConfigurationManager:
     
 
 
-    def get_evaluation_config(self) -> EvaluationConfig:
+    '''def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model="artifacts/training/model.h5",
             training_data="artifacts/data_ingestion/kidney-ct-scan-image",
